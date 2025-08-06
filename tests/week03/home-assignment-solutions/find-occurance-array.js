@@ -40,7 +40,7 @@ function findOccurrenceInArray(nums, k) {
 function findOccurrenceInArrayUsingSplit(nums, k) {
   console.log(`Finding occurrences of ${k} in the array using Split(): ${nums}`)
   console.log(nums.join('').split(k)) // print the split array
-  return nums.join('').split(k).count - 1 // Using join and split to count occurrences
+  return nums.join('').split(k).length - 1 // Using join and split to count occurrences
 }
 
 console.log(findOccurrenceInArray([2, 4, 5, 2, 1, 2], 2)) // Output: 3

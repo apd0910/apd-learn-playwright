@@ -1,0 +1,76 @@
+Code Review 	
+Author: Arun
+Reviewer: Jagadish
+
+Assignment 1: Create Lead (Salesforce)
+Login and navigation steps are clearly handled.
+
+Use of await is correct and consistent.
+
+Assertion for verifying lead creation is accurate.
+
+Suggestion:
+
+Add comments for each step it's okay now but essential when working in a team.
+
+Use toHaveText() with locator instead of innerText() for tighter assertion.
+----------------------------------------------------------------------------------------------------------------------------------
+
+Assignment 2: Edit Lead (Leaftaps)
+Good handling of company name before and after update.
+
+Correct usage of locators and Playwright test flow.
+
+Suggestions:
+
+Use await page.waitForSelector() after clicks instead of waitForLoadState() where applicable.
+
+XPath locators can be unstable  switch to better CSS selectors if available.
+
+----------------------------------------------------------------------------------------------------------------------------------
+Assignment 3: Create Individuals (Salesforce)
+Steps are logically ordered.
+
+Scroll into view function was missed – no () in scrollIntoViewIfNeeded.
+
+Suggestions:
+
+Call it with await page.locator(...).scrollIntoViewIfNeeded() to ensure element visibility.
+
+waitForLoadState() is generic; prefer waiting for element-specific presence.
+
+Add expect().toBeVisible() after save to verify UI feedback instead of relying only on static name match.
+----------------------------------------------------------------------------------------------------------------------------------
+Assignment 4: Edit Individuals
+Strong test structure and step-by-step clarity.
+
+Edit flow is well-implemented.
+
+Suggestions:
+
+Missing await on scrollIntoViewIfNeeded again.
+
+In step 8, refreshButton is clicked after filling first name — this seems unnecessary. It may reset the form double-check.
+
+Add a final assertion like expect(locator).toHaveText(fullName) after search to validate post-update name.
+----------------------------------------------------------------------------------------------------------------------------------
+Assignment 5: RedBus and Flipkart - Multi-Browser Launch
+Shows good understanding of launching multiple browsers and using different engines.
+
+Print statements for URLs and Titles are helpful.
+
+Suggestions:
+
+Use await page.url() instead of just page.url() — current version might not give accurate output.
+
+Wrap both contexts in try-finally or add error handling to ensure both browsers close even on test failure.
+
+Add assertions for page title and URL validation using expect(title).toContain("Redbus") kind of check.
+----------------------------------------------------------------------------------------------------------------------------------
+Common Feedback
+
+ Clear naming convention and organized flow.
+
+ Always use await with methods like .scrollIntoViewIfNeeded() or .url().
+
+ refer assertions like expect(locator).toHaveText() instead of fetching innerText.
