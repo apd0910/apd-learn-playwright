@@ -1,0 +1,19 @@
+Scrolling
+--------------------------------
+Scrolling to an element in Playwright. Here are the most common ways to do it:
+Using locator.evaluate() + scrollIntoView() (Most Common)
+
+await page.locator('text=Roadster').evaluate(el =>
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+);
+Use when: You want to scroll to an element smoothly before interacting.
+
+Using hover() (Triggers auto-scroll)
+await page.locator('text=Roadster').hover();
+Use when: Hovering brings the element into view (e.g., menus, dropdowns).
+
+Click/Fill auto-scrolls by default
+await page.locator('#subject').click();
+Use when: Clicking or typing — Playwright scrolls automatically.
+
+There is no direct .scroll() function, so we use .evaluate() for full control.
