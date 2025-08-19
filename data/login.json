@@ -1,0 +1,11 @@
+[
+{
+    "TCaseId":"TC001",
+    "Username":"DemoSalesMana",
+    "Password":"crmsfa"
+},{
+    "TCaseId":"TC002",
+    "Username":"DemoCSR",
+    "Password":"crmsfa"
+}
+]
